@@ -1,0 +1,17 @@
+firstname:<input type="text" [(ngModel)]="firstname"><br>
+lastname:<input type="text" [(ngModel)]="lastname"><br>
+Gender:<input type="radio" [(ngModel)]="gender" value="male">:male
+<input type="radio" [(ngModel)]="gender" value="female">:female
+<input type="radio" [(ngModel)]="gender" value="other">:other<br>
+Country:
+<select [(ngModel)]="country">
+    <option value="ind">India</option>
+    <option value="uk">UK</option>
+    <option value="us">USA</option>
+</select>
+<br>
+
+<h2>Firstname:{{firstname}}</h2>
+<h2>Lastname:{{lastname}}:</h2>
+<h2>Gender:{{gender}}</h2>
+<h2>Country:{{country}}</h2>
