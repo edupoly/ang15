@@ -1,0 +1,12 @@
+module
+component
+    templating
+    data binding
+    event handling
+    *ngFor
+pipe
+directive
+
+services
+routing
+forms
