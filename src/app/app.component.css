@@ -1,0 +1,11 @@
+li{
+    padding:5px;
+    margin: 5px;
+    width:200px;
+}
+.done{
+    background-color: lightgreen;
+}
+.notdone{
+    background-color: lightcoral;
+}
