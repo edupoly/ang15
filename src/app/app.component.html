@@ -1,0 +1,10 @@
+<h1>App Component</h1>
+<h1 *ngIf="n%2===0">n is even</h1>
+<h1 *ngIf="n%2===1">n is odd</h1>
+<ul>
+    <li *ngFor="let v of ar">{{v}}</li>
+</ul>
+<h1 [style]="p%10===0?{'display':'block'}:{'display':'none'}">Yes p is divisible by 10</h1>
+<h1 [style]="p%10!==0?{'display':'block'}:{'display':'none'}">NO........ p is divisible by 10</h1>
+
+
