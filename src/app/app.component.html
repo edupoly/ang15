@@ -1,0 +1,21 @@
+<h1>Property Binding Example</h1>
+<ul>
+    <li *ngFor="let student of students">
+        <img [src]="student.gender==='male'?'https://image.shutterstock.com/image-vector/man-character-face-avatar-glasses-260nw-562077406.jpg':'https://i.pinimg.com/236x/82/ab/35/82ab3533ee71daf256f23c1ccf20ad6f--avatar-maker.jpg'" alt="">
+        {{student.name}}
+        <div [class]="student.online===true?'online':'offline'"></div>
+    </li>
+</ul>
+<img src="" alt="">
+<img src="" alt="">
+<!-- 
+    1. data binding
+    2. two way data biunding
+    3. event handling
+    4. ngFor 
+    5. property binding
+    6. parent child relations
+    7. parent to child data communication
+    8. refactoring
+    
+ -->
