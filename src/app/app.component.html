@@ -1,0 +1,17 @@
+<h1>{{mysal|currency:'EUR'}}</h1>
+<H1>{{mysal|number:'6.2-4'}}</H1>
+<h1>{{today|date}}</h1>
+<table border="2" cellpadding="10">
+    <thead>
+        <td>Sno.</td>
+        <td (click)="sortbyname()">Name</td>
+        <td (click)="sortbyage()">Age</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{student.firstname}}</td>
+            <td>{{student.age}}</td>
+        </tr>
+    </tbody>
+</table>
