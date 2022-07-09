@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   mysal=1234.4;
-  today='3/15/2033'
+  today='3/15/2033';
+  key='';
   students=[
     {
       firstname:'rahul',
@@ -26,14 +27,5 @@ export class AppComponent {
       age:39
     },
   ]
-  sortbyname(){
-    this.students.sort((a,b)=>{
-      return a.firstname>b.firstname?1:-1
-    })
-  }
-  sortbyage(){
-    this.students.sort((a,b)=>{
-      return a.age>b.age?1:-1
-    })
-  }
+  
 }

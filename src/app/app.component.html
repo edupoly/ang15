@@ -4,11 +4,11 @@
 <table border="2" cellpadding="10">
     <thead>
         <td>Sno.</td>
-        <td (click)="sortbyname()">Name</td>
-        <td (click)="sortbyage()">Age</td>
+        <td (click)="key='name'">Name</td>
+        <td (click)="key='age'">Age</td>
     </thead>
     <tbody>
-        <tr *ngFor="let student of students;let i=index">
+        <tr *ngFor="let student of students|sort:key;let i=index">
             <td>{{i+1}}</td>
             <td>{{student.firstname}}</td>
             <td>{{student.age}}</td>
