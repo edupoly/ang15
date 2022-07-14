@@ -1,0 +1,32 @@
+<h1>This is Our World</h1>
+<input type="text" [(ngModel)]="searchKey" (keyup)="filterBySearch()">
+{{searchKey}}
+<table border="2" width="100%" cellpadding="10" cellspacing="5">
+    <thead>
+        <th>Name</th>
+        <th>Flag</th>
+        <th (click)="sortByPopulation()">Population</th>
+        <th>Languages</th>
+        <th>Currency</th>
+        <th (click)="sortByArea()">Area</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let country of filteredCountries">
+            <td>{{country.name}}</td>
+            <td><img [src]="country.flag" alt="" width="50px"></td>
+            <td>{{country.population}}</td>
+            <td>
+                <span *ngFor="let language of country.languages">{{language.name}}, </span>
+            </td>
+            <td>                
+                <span *ngFor="let currency of country.currencies">{{currency.name}}, </span>
+            </td>
+            <td>{{country.area}}</td>
+        </tr>
+    </tbody>
+</table>
+<ul>
+    <li *ngFor="let country of countries">
+        {{country.name}}
+    </li>
+</ul>
