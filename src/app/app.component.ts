@@ -25,7 +25,7 @@ export class AppComponent {
     this.showAddPostForm=false;
   }
   addPost(){
-    this.http.post("http://localhost:3000/posts",this.newPost).subscribe(()=>{
+    this.http.post("http://localhost:3000/toys",this.newPost).subscribe(()=>{
       console.log("HI..")
       this.showAddPostForm=false;
       this.newPost={};

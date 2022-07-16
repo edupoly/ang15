@@ -36,6 +36,13 @@
       "id": 10
     }
   ],
+  "toys": [
+    {
+      "title": "asd",
+      "author": "werew",
+      "id": 1
+    }
+  ],
   "comments": [],
   "profile": {
     "name": "typicode"
