@@ -1,62 +1,91 @@
-<div class="container d-flex">
-    <button type="button" class="ms-auto btn btn-success" data-bs-toggle="modal" data-bs-target="#addPost">
-      +Add Post
-    </button>
-</div>
-<div *ngIf="selectedPost">
-    <input type="text" [(ngModel)]="selectedPost.title" placeholder="enter title"><br/>
-    <input type="text" [(ngModel)]="selectedPost.author" placeholder="enter author"><br/>
-    <button (click)="updatePost()">Update Post</button>
-</div>
-<div class="container">
-    <table class="table table-striped" *ngIf="!showAddPostForm">
-        <thead>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Operation</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let post of allPosts">
-                <td>{{post.id}}</td>
-                <td>{{post.title}}</td>
-                <td>{{post.author}}</td>
-                <td>
-                    <button (click)="deletePost(post.id)">Delete</button>
-                    <button (click)="editPost(post)">Edit</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-
-  
-  <!-- The Modal -->
-<div class="modal" id="addPost">
-    <div class="modal-dialog">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Add New Post</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-  
-        <!-- Modal body -->
-        <div class="modal-body">
-            <div>
-                <input type="text" [(ngModel)]="newPost.title" placeholder="enter title"><br/>
-                <input type="text" [(ngModel)]="newPost.author"placeholder='enter author'><br/>
-                </div>
-        </div>
-  
-        <!-- Modal footer -->
-        <div class="modal-footer d-flex">
-          <button type="button" (click)="addPost()" class="me-auto btn btn-success" data-bs-dismiss="modal">Add Post</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
-  
-      </div>
+<div class="m-4">
+    
+    <div class="container d-flex">
+        <button type="button" class="ms-auto btn btn-success" data-bs-toggle="modal" data-bs-target="#addPost">
+        +Add Post
+        </button>
     </div>
-</div>
+
+    <div class="container">
+        <table class="table table-striped" *ngIf="!showAddPostForm">
+            <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Operation</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of allPosts">
+                    <td>{{post.id}}</td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.author}}</td>
+                    <td>
+                        <button (click)="deletePost(post.id)" class="ms-auto btn btn-danger m-2">&#9940;Delete</button>
+                        <button type="button" (click)="editPost(post)" class="ms-auto btn btn-warning m2" data-bs-toggle="modal" data-bs-target="#editPost">
+                            &#9998;Edit
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    
+    <!-- The Modal -->
+    <div class="modal" id="addPost">
+        <div class="modal-dialog">
+        <div class="modal-content">
+    
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">Add New Post</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+    
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div>
+                    <input type="text" [(ngModel)]="newPost.title" placeholder="enter title"><br/>
+                    <input type="text" [(ngModel)]="newPost.author"placeholder='enter author'><br/>
+                    </div>
+            </div>
+    
+            <!-- Modal footer -->
+            <div class="modal-footer d-flex">
+            <button type="button" (click)="addPost()" class="me-auto btn btn-success" data-bs-dismiss="modal">Add Post</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+    
+        </div>
+        </div>
+    </div>
+    <div class="modal" id="editPost">
+        <div class="modal-dialog">
+        <div class="modal-content">
+    
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">Add New Post</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+    
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div *ngIf="selectedPost">
+                    <input type="text" [(ngModel)]="selectedPost.title" placeholder="enter title"><br/>
+                    <input type="text" [(ngModel)]="selectedPost.author" placeholder="enter author"><br/>
+                </div>
+            </div>
+    
+            <!-- Modal footer -->
+            <div class="modal-footer d-flex">
+            <button type="button" (click)="updatePost()" class="me-auto btn btn-warning" data-bs-dismiss="modal">Update Post</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+    
+        </div>
+        </div>
+    </div>
+
+    </div>

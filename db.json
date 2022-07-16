@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "title": "Angular Router gaurds",
+      "author": "Divya V",
+      "id": 3
+    },
+    {
+      "title": "Angular HTTP services",
+      "author": "Mohan",
+      "id": 4
+    },
+    {
+      "title": "api call in angular",
+      "author": "shankar",
+      "id": 5
+    },
+    {
+      "title": "javascripr advanced scope",
+      "author": "praveen",
+      "id": 6
+    },
+    {
+      "title": "javascript functions",
+      "author": "Dhrithiman",
+      "id": 8
+    },
+    {
+      "title": "photoshop",
+      "author": "rohit",
+      "id": 9
+    },
+    {
+      "title": "himaja",
+      "author": "kasu wer",
+      "id": 10
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
