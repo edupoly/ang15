@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor(public http:HttpClient){}
-  newPost = {
+  newPost:any = {
     title:'',
     author:''
   };
@@ -28,6 +28,7 @@ export class AppComponent {
     this.http.post("http://localhost:3000/posts",this.newPost).subscribe(()=>{
       console.log("HI..")
       this.showAddPostForm=false;
+      this.newPost={};
       this.getPosts();
     })
   }
