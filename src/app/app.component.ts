@@ -8,48 +8,49 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor(public http:HttpClient){}
-  countries:any=[];
-  searchKey:string='';
-  filteredCountries:any=[];
-  getCountries(){
-    this.http.get("https://restcountries.com/v2/all").subscribe((res)=>{
-      this.countries=res;
-      this.filteredCountries=res;
-    })
-  }
+  newPost = {
+    title:'',
+    author:''
+  };
+  showAddPostForm=false;
+  selectedPost:any=null;
   ngOnInit(){
-    this.getCountries()
+    this.getPosts()
   }
-  filterBySearch(){
-    var searchResults = this.countries.filter((c:any)=>{
-      var str = JSON.stringify(c)
-      if(str.includes(this.searchKey)){
-        return true
-      }
-      else{
-        return false
-      }
-    })
-    this.filteredCountries=searchResults;
+  allPosts:any=[];
+  showAddPost(){
+    this.showAddPostForm=true;
   }
-  sortByPopulation(){
-    this.countries.sort((a:any,b:any)=>{
-      if(a.population>b.population){
-        return -1
-      }
-      else{
-        return 1
-      }
+  cancelAddPost(){
+    this.showAddPostForm=false;
+  }
+  addPost(){
+    this.http.post("http://localhost:3000/posts",this.newPost).subscribe(()=>{
+      console.log("HI..")
+      this.showAddPostForm=false;
+      this.getPosts();
     })
   }
-  sortByArea(){
-    this.countries.sort((a:any,b:any)=>{
-      if(a.area>b.area){
-        return -1
-      }
-      else{
-        return 1
-      }
+  getPosts(){
+    this.http.get("http://localhost:3000/posts").subscribe((res)=>{
+      this.allPosts=res;
+    })
+  }
+  deletePost(id:any){
+    this.http.delete("http://localhost:3000/posts/"+id).subscribe((res)=>{
+      console.log('deleted');
+      this.getPosts();
+    })
+  }
+  editPost(post:any){
+    this.selectedPost=post;
+  }
+
+  updatePost(){
+    this.http.put("http://localhost:3000/posts/"+this.selectedPost.id,this.selectedPost).subscribe(()=>{
+      console.log("HI..");
+      this.selectedPost=null;
+      this.getPosts();
     })
   }
 }

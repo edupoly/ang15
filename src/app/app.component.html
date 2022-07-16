@@ -1,32 +1,34 @@
-<h1>This is Our World</h1>
-<input type="text" [(ngModel)]="searchKey" (keyup)="filterBySearch()">
-{{searchKey}}
-<table border="2" width="100%" cellpadding="10" cellspacing="5">
+<button (click)="showAddPost()" *ngIf="!showAddPostForm">Add Post</button>
+
+<div *ngIf="showAddPostForm">
+    <input type="text" [(ngModel)]="newPost.title"><br/>
+    <input type="text" [(ngModel)]="newPost.author"><br/>
+    <button (click)="addPost()">Add Post</button>
+    <button (click)="cancelAddPost()">Cancel</button>
+</div>
+
+<div *ngIf="selectedPost">
+    <input type="text" [(ngModel)]="selectedPost.title"><br/>
+    <input type="text" [(ngModel)]="selectedPost.author"><br/>
+    <button (click)="updatePost()">Update Post</button>
+</div>
+
+<table class="table table-striped w-75 text-center" align="center" *ngIf="!showAddPostForm">
     <thead>
-        <th>Name</th>
-        <th>Flag</th>
-        <th (click)="sortByPopulation()">Population</th>
-        <th>Languages</th>
-        <th>Currency</th>
-        <th (click)="sortByArea()">Area</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Operation</th>
     </thead>
     <tbody>
-        <tr *ngFor="let country of filteredCountries">
-            <td>{{country.name}}</td>
-            <td><img [src]="country.flag" alt="" width="50px"></td>
-            <td>{{country.population}}</td>
+        <tr *ngFor="let post of allPosts">
+            <td>{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.author}}</td>
             <td>
-                <span *ngFor="let language of country.languages">{{language.name}}, </span>
+                <button (click)="deletePost(post.id)">Delete</button>
+                <button (click)="editPost(post)">Edit</button>
             </td>
-            <td>                
-                <span *ngFor="let currency of country.currencies">{{currency.name}}, </span>
-            </td>
-            <td>{{country.area}}</td>
         </tr>
     </tbody>
 </table>
-<ul>
-    <li *ngFor="let country of countries">
-        {{country.name}}
-    </li>
-</ul>
