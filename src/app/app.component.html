@@ -1,0 +1,10 @@
+<h1>Reactive Forms</h1>
+<div [formGroup]="studentForm">
+    <input type="text" formControlName="firstname"><br/>
+    <div *ngIf="firstname.touched && firstname.errors">
+        <h3 *ngIf="firstname.errors['required']">First name is required</h3>
+        <h3 *ngIf="firstname.errors['minlength']">Firstname must be atleast 3 chars</h3>
+    </div>
+    <input type="text" formControlName="lastname"><br/>
+    <button (click)="save()">Save</button>
+</div>
