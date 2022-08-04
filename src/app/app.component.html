@@ -5,6 +5,19 @@
         <h3 *ngIf="firstname.errors['required']">First name is required</h3>
         <h3 *ngIf="firstname.errors['minlength']">Firstname must be atleast 3 chars</h3>
     </div>
+    <input type="radio" formControlName="gender" value="male">Male &nbsp;&nbsp;&nbsp;
+    <input type="radio" formControlName="gender" value="female">Female &nbsp;&nbsp;&nbsp;
+    <input type="radio" formControlName="gender" value="others">others &nbsp;&nbsp;&nbsp;
+    <br>
     <input type="text" formControlName="lastname"><br/>
+    <input type="date" formControlName="dob"><br/>
+    <div *ngIf=" studentForm.touched && studentForm.errors">
+        <h3 *ngIf="studentForm.errors['ageError']">{{studentForm.errors['ageError']}}</h3>
+    </div>
+    <label>username</label>
+    <input type="text" formControlName="username"/>
+    <div *ngIf="username && username.touched && username.errors">
+        <h3 *ngIf="username.errors['usernameError']">{{username.errors['usernameError']}}</h3>
+    </div>
     <button (click)="save()">Save</button>
 </div>
